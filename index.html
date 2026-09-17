@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCA - Associação Cristã Conservadora do Amanhã | João Pessoa/PB</title>
+<meta name="description" content="Organização da sociedade civil fundada em 2021 em João Pessoa/PB. Assistência social, inclusão, cultura e fortalecimento comunitário para crianças, famílias e pessoas com deficiência.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          acca: {
+            green: '#1B5E20',
+            'green-dark': '#0F3D12',
+            'green-light': '#2E7D32',
+            'green-tint': '#E8F5E9',
+            gold: '#F59E0B',
+            'gold-dark': '#D97706',
+            'gold-tint': '#FEF3C7',
+            navy: '#1E3A8A',
+          },
+        },
+        fontFamily: {
+          sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+          display: ['Poppins', 'ui-sans-serif', 'system-ui'],
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+  h1, h2, h3, h4, .font-display { font-family: 'Poppins', sans-serif; }
+  section, header { scroll-margin-top: 84px; }
+
+  /* Reveal-on-scroll is progressive enhancement: elements stay visible unless JS confirms it can animate them (see inline script below). */
+  .js-anim .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease-out, transform .7s ease-out; }
+  .js-anim .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+  .nav-link.active { color: #1B5E20; font-weight: 600; }
+  .nav-link.active::after { transform: scaleX(1); }
+  .nav-link::after {
+    content: ''; position: absolute; left: 0; bottom: -4px; height: 2px; width: 100%;
+    background: #F59E0B; transform: scaleX(0); transform-origin: left; transition: transform .25s ease-out;
+  }
+
+  .blob { filter: blur(70px); }
+
+  @keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55); }
+    100% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
+  }
+  .whatsapp-pulse { animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+
+  .timeline-line { background: linear-gradient(to bottom, #F59E0B, #1B5E20 20%, #1B5E20 80%, #F59E0B); }
+
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #F9FAFB; }
+  ::-webkit-scrollbar-thumb { background: #1B5E20; border-radius: 9999px; }
+</style>
+<script>
+  if ('IntersectionObserver' in window) document.documentElement.classList.add('js-anim');
+</script>
+</head>
+
+<body class="bg-white text-gray-700 antialiased">
+
+<!-- ===================== NAVBAR ===================== -->
+<header class="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+  <nav class="max-w-7xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-3 shrink-0">
+      <span class="w-11 h-11 rounded-xl bg-gradient-to-br from-acca-green to-acca-green-light flex items-center justify-center text-acca-gold shadow-md">
+        <i class="fa-solid fa-hand-holding-heart text-lg"></i>
+      </span>
+      <span class="leading-tight">
+        <span class="block font-display font-extrabold text-xl text-acca-green tracking-tight">ACCA</span>
+        <span class="hidden sm:block text-[11px] font-medium text-gray-500 tracking-wide">Associação Cristã Conservadora do Amanhã</span>
+      </span>
+    </a>
+
+    <div class="hidden lg:flex items-center gap-8 text-sm text-gray-600">
+      <a href="#quem-somos" class="nav-link relative py-1" data-nav>Quem Somos</a>
+      <a href="#historia" class="nav-link relative py-1" data-nav>História</a>
+      <a href="#atuacao" class="nav-link relative py-1" data-nav>Áreas de Atuação</a>
+      <a href="#impacto" class="nav-link relative py-1" data-nav>Impacto</a>
+      <a href="#lideranca" class="nav-link relative py-1" data-nav>Liderança</a>
+      <a href="#transparencia" class="nav-link relative py-1" data-nav>Transparência</a>
+      <a href="#contato" class="nav-link relative py-1" data-nav>Contato</a>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <a href="#contato" class="hidden sm:inline-flex items-center gap-2 bg-acca-gold hover:bg-acca-gold-dark text-acca-green-dark font-semibold text-sm px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-300">
+        <i class="fa-solid fa-heart"></i> Apoie a ACCA
+      </a>
+      <button id="menu-btn" aria-label="Abrir menu" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg text-acca-green hover:bg-acca-green-tint transition-colors">
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 shadow-lg">
+    <div class="px-5 py-4 flex flex-col gap-1 text-gray-700 font-medium">
+      <a href="#quem-somos" class="mobile-link px-3 py-2.5 rounded-lg hover:bg-acca-green-tint hover:text-acca-green transition-colors">Quem Somos</a>
+      <a href="#historia" class="mobile-link px-3 py-2.5 rounded-lg hover:bg-acca-green-tint hover:text-acca-green transition-colors">História</a>
+      <a href="#atuacao" class="mobile-link px-3 py-2.5 rounded-lg hover:bg-acca-green-tint hover:text-acca-green transition-colors">Áreas de Atuação</a>
+      <a href="#impacto" class="mobile-link px-3 py-2.5 rounded-lg hover:bg-acca-green-tint hover:text-acca-green transition-colors">Impacto</a>
+      <a href="#lideranca" class="mobile-link px-3 py-2.5 rounded-lg hover:bg-acca-green-tint hover:text-acca-green transition-colors">Liderança</a>
+      <a href="#transparencia" class="mobile-link px-3 py-2.5 rounded-lg hover:bg-acca-green-tint hover:text-acca-green transition-colors">Transparência</a>
+      <a href="#contato" class="mobile-link px-3 py-2.5 rounded-lg hover:bg-acca-green-tint hover:text-acca-green transition-colors">Contato</a>
+      <a href="#contato" class="mobile-link mt-2 text-center bg-acca-gold text-acca-green-dark font-semibold px-3 py-3 rounded-full">Apoie a ACCA</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="relative bg-gradient-to-br from-acca-green-dark via-acca-green to-acca-green-light pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden">
+  <div class="absolute -top-24 -left-24 w-96 h-96 bg-acca-gold/30 rounded-full blob"></div>
+  <div class="absolute top-1/2 -right-32 w-[28rem] h-[28rem] bg-acca-navy/30 rounded-full blob"></div>
+  <div class="absolute bottom-0 left-1/3 w-72 h-72 bg-white/10 rounded-full blob"></div>
+
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-14 items-center">
+    <div class="reveal">
+      <span class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/90 text-xs font-semibold tracking-wide uppercase px-4 py-2 rounded-full">
+        <i class="fa-solid fa-location-dot text-acca-gold"></i> Organização da Sociedade Civil · João Pessoa/PB
+      </span>
+
+      <h1 class="mt-6 font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-tight text-white">
+        Compromisso, inclusão e <span class="text-acca-gold">transformação social</span> a serviço das famílias.
+      </h1>
+
+      <p class="mt-6 text-lg text-white/80 max-w-xl">
+        Atuação social e comunitária independente, fundada em João Pessoa/PB desde 2021 — levando acolhimento, cultura, esporte e oportunidade às famílias e comunidades da Paraíba.
+      </p>
+
+      <blockquote class="mt-6 flex items-start gap-3 text-acca-gold italic font-medium text-lg max-w-lg">
+        <i class="fa-solid fa-quote-left mt-1 text-acca-gold/60"></i>
+        <span>"Quem não vive para servir, não serve para viver."</span>
+      </blockquote>
+
+      <div class="mt-9 flex flex-wrap gap-4">
+        <a href="#atuacao" class="inline-flex items-center gap-2 bg-acca-gold hover:bg-acca-gold-dark text-acca-green-dark font-semibold px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
+          Conheça Nossos Projetos <i class="fa-solid fa-arrow-right text-sm"></i>
+        </a>
+        <a href="#contato" class="inline-flex items-center gap-2 border border-white/40 hover:bg-white/10 text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-300">
+          <i class="fa-solid fa-hand-holding-heart"></i> Seja um Voluntário
+        </a>
+      </div>
+
+      <div class="mt-12 flex flex-wrap gap-8 text-white">
+        <div class="border-l-2 border-acca-gold pl-4">
+          <p class="font-display font-bold text-2xl">2021</p>
+          <p class="text-xs text-white/70 uppercase tracking-wide">Ano de fundação</p>
+        </div>
+        <div class="border-l-2 border-acca-gold pl-4">
+          <p class="font-display font-bold text-2xl">11+</p>
+          <p class="text-xs text-white/70 uppercase tracking-wide">Territórios atendidos</p>
+        </div>
+        <div class="border-l-2 border-acca-gold pl-4">
+          <p class="font-display font-bold text-2xl">100%</p>
+          <p class="text-xs text-white/70 uppercase tracking-wide">Trabalho voluntário</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 aspect-[4/5] max-w-md mx-auto">
+        <img src="https://placehold.co/700x875/1B5E20/F9FAFB?text=ACCA+em+A%C3%A7%C3%A3o"
+             alt="Voluntários da ACCA acolhendo crianças e famílias durante ação social na Comunidade Taipa, em João Pessoa/PB"
+             class="w-full h-full object-cover">
+        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 to-transparent p-5">
+          <p class="text-white text-sm font-medium">Caravana social · Comunidade Taipa</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- wave divider -->
+  <div class="absolute bottom-0 left-0 w-full leading-[0]">
+    <svg class="w-full h-16 sm:h-20" viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C360,100 1080,0 1440,50 L1440,100 L0,100 Z" fill="#ffffff"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- ===================== QUEM SOMOS ===================== -->
+<section id="quem-somos" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-14 items-center">
+    <div class="reveal order-2 lg:order-1">
+      <div class="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
+        <img src="https://placehold.co/800x600/E8F5E9/1B5E20?text=Quem+Somos"
+             alt="Equipe de voluntárias da ACCA conduzindo oficina comunitária com crianças em ambiente acolhedor"
+             class="w-full h-full object-cover">
+      </div>
+      <div class="mt-6 bg-acca-green rounded-2xl p-6 shadow-md text-white flex items-center gap-5">
+        <i class="fa-solid fa-seedling text-3xl text-acca-gold"></i>
+        <div>
+          <p class="font-display font-bold text-lg">Desde 2021</p>
+          <p class="text-sm text-white/80">Atuação social e comunitária em João Pessoa/PB</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal order-1 lg:order-2">
+      <span class="text-acca-gold-dark font-semibold text-sm uppercase tracking-wide">Quem Somos</span>
+      <h2 class="mt-3 font-display font-bold text-3xl sm:text-4xl text-gray-900">Uma trajetória construída com fé, serviço e comunidade</h2>
+
+      <p class="mt-6 text-gray-600 leading-relaxed">
+        A ACCA – Associação Cristã Conservadora do Amanhã é uma organização da sociedade civil fundada em <strong class="text-acca-green">6 de junho de 2021</strong>, em João Pessoa/PB, e registrada em cartório em <strong class="text-acca-green">14 de julho</strong> do mesmo ano.
+      </p>
+      <p class="mt-4 text-gray-600 leading-relaxed">
+        Atuamos nas áreas de assistência social, cultura, educação, inclusão, esporte e fortalecimento comunitário, desenvolvendo ações para crianças, adolescentes, pessoas com deficiência, pessoas idosas, mulheres e famílias em situação de vulnerabilidade social — promovendo acolhimento, participação, convivência e desenvolvimento humano.
+      </p>
+
+      <div class="mt-6 bg-acca-gold-tint border-l-4 border-acca-gold rounded-r-xl p-5">
+        <p class="font-semibold text-acca-green-dark mb-1"><i class="fa-solid fa-star text-acca-gold-dark mr-2"></i>Nosso diferencial</p>
+        <p class="text-sm text-gray-700">Atuação independente, gerida por voluntários, mobilização comunitária e doações — sem depender de emendas parlamentares ou convênios governamentais.</p>
+      </div>
+
+      <p class="mt-6 text-sm font-semibold text-gray-500 uppercase tracking-wide">Público prioritário</p>
+      <div class="mt-3 flex flex-wrap gap-2">
+        <span class="px-4 py-1.5 rounded-full bg-acca-green-tint text-acca-green text-sm font-medium">Crianças e adolescentes</span>
+        <span class="px-4 py-1.5 rounded-full bg-acca-green-tint text-acca-green text-sm font-medium">Pessoas com deficiência</span>
+        <span class="px-4 py-1.5 rounded-full bg-acca-green-tint text-acca-green text-sm font-medium">Pessoas idosas</span>
+        <span class="px-4 py-1.5 rounded-full bg-acca-green-tint text-acca-green text-sm font-medium">Mulheres</span>
+        <span class="px-4 py-1.5 rounded-full bg-acca-green-tint text-acca-green text-sm font-medium">Famílias em vulnerabilidade social</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HISTÓRIA (TIMELINE) ===================== -->
+<section id="historia" class="py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <span class="text-acca-gold-dark font-semibold text-sm uppercase tracking-wide">Nossa História</span>
+      <h2 class="mt-3 font-display font-bold text-3xl sm:text-4xl text-gray-900">Da Comunidade Taipa até hoje</h2>
+      <p class="mt-4 text-gray-600">Uma trajetória sustentada pelo trabalho voluntário, pelas doações e pela confiança das comunidades atendidas.</p>
+    </div>
+
+    <div class="mt-14 grid lg:grid-cols-3 gap-10">
+      <div class="reveal lg:col-span-1">
+        <div class="rounded-2xl overflow-hidden shadow-xl">
+          <img src="https://placehold.co/800x900/1B5E20/F59E0B?text=Comunidade+Taipa+%C2%B7+2021"
+               alt="Primeira ação social da ACCA na Comunidade Taipa em maio de 2021, marco fundador da instituição"
+               class="w-full h-full object-cover">
+        </div>
+      </div>
+
+      <div class="reveal lg:col-span-2 relative pl-10">
+        <div class="absolute left-[11px] top-2 bottom-2 w-0.5 timeline-line"></div>
+
+        <div class="relative pb-10">
+          <span class="absolute -left-10 top-0 w-6 h-6 rounded-full bg-acca-gold border-4 border-white shadow"></span>
+          <p class="text-xs font-bold text-acca-gold-dark uppercase tracking-wide">30 maio 2021</p>
+          <h3 class="font-display font-semibold text-lg text-gray-900 mt-1">Primeira ação social</h3>
+          <p class="text-sm text-gray-600 mt-1">A mobilização realizada na Comunidade Taipa marcou o início da atuação da ACCA. Sem estrutura ou recursos públicos, o trabalho nasceu do desejo de servir, acolher famílias e transformar realidades.</p>
+        </div>
+
+        <div class="relative pb-10">
+          <span class="absolute -left-10 top-0 w-6 h-6 rounded-full bg-acca-green border-4 border-white shadow"></span>
+          <p class="text-xs font-bold text-acca-green uppercase tracking-wide">06 junho 2021</p>
+          <h3 class="font-display font-semibold text-lg text-gray-900 mt-1">Fundação da ACCA</h3>
+          <p class="text-sm text-gray-600 mt-1">A Associação Cristã Conservadora do Amanhã foi fundada, consolidando oficialmente um trabalho que já surgia com forte participação comunitária e compromisso social.</p>
+        </div>
+
+        <div class="relative pb-10">
+          <span class="absolute -left-10 top-0 w-6 h-6 rounded-full bg-acca-green border-4 border-white shadow"></span>
+          <p class="text-xs font-bold text-acca-green uppercase tracking-wide">14 julho 2021</p>
+          <h3 class="font-display font-semibold text-lg text-gray-900 mt-1">Registro em cartório</h3>
+          <p class="text-sm text-gray-600 mt-1">A instituição obteve seu registro e passou a desenvolver sua trajetória de forma regularizada, ampliando gradualmente sua atuação.</p>
+        </div>
+
+        <div class="relative pb-10">
+          <span class="absolute -left-10 top-0 w-6 h-6 rounded-full bg-acca-green border-4 border-white shadow"></span>
+          <p class="text-xs font-bold text-acca-green uppercase tracking-wide">2021 — 2026</p>
+          <h3 class="font-display font-semibold text-lg text-gray-900 mt-1">Atuação continuada</h3>
+          <p class="text-sm text-gray-600 mt-1">Ações de assistência social, cultura, recreação, inclusão, esporte e fortalecimento de vínculos passaram a alcançar crianças, adolescentes, pessoas com deficiência, pessoas idosas e famílias em vulnerabilidade.</p>
+        </div>
+
+        <div class="relative">
+          <span class="absolute -left-10 top-0 w-6 h-6 rounded-full bg-acca-gold border-4 border-white shadow"></span>
+          <p class="text-xs font-bold text-acca-gold-dark uppercase tracking-wide">14 agosto 2024</p>
+          <h3 class="font-display font-semibold text-lg text-gray-900 mt-1">Estatuto atualizado e nova diretoria</h3>
+          <p class="text-sm text-gray-600 mt-1">Assembleia Geral aprova a atualização do Estatuto Social e empossa a Diretoria Executiva para o mandato 2024–2028.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-14 reveal bg-acca-green rounded-2xl px-8 py-6 text-center shadow-md">
+      <p class="text-white font-display font-semibold text-lg">"A Comunidade Taipa permanece como símbolo do nosso início."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ÁREAS DE ATUAÇÃO ===================== -->
+<section id="atuacao" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <span class="text-acca-gold-dark font-semibold text-sm uppercase tracking-wide">Áreas de Atuação</span>
+      <h2 class="mt-3 font-display font-bold text-3xl sm:text-4xl text-gray-900">Projetos que transformam realidades</h2>
+      <p class="mt-4 text-gray-600">Quatro frentes de atuação conectadas às necessidades reais dos territórios atendidos.</p>
+    </div>
+
+    <div class="mt-14 grid md:grid-cols-2 gap-8">
+      <!-- Card 1 -->
+      <div class="reveal group bg-white border border-gray-100 rounded-2xl p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <div class="w-14 h-14 rounded-xl bg-acca-gold-tint flex items-center justify-center text-acca-gold-dark text-2xl mb-5 group-hover:scale-110 transition-transform">
+          <i class="fa-solid fa-bread-slice"></i>
+        </div>
+        <h3 class="font-display font-semibold text-xl text-gray-900">Assistência Social & Desenvolvimento</h3>
+        <p class="mt-3 text-sm text-gray-600 leading-relaxed">Projeto <strong>"Pão na Comunidade"</strong> — oficinas de pães e trufas, kits produtivos e mobilização comunitária para gerar renda e autonomia às famílias.</p>
+        <div class="mt-5 flex flex-wrap gap-2">
+          <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-100 text-gray-600">Oficinas de capacitação</span>
+          <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-100 text-gray-600">Kits produtivos</span>
+          <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-100 text-gray-600">Geração de renda</span>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="reveal group bg-white border border-gray-100 rounded-2xl p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <div class="w-14 h-14 rounded-xl bg-acca-green-tint flex items-center justify-center text-acca-green text-2xl mb-5 group-hover:scale-110 transition-transform">
+          <i class="fa-solid fa-puzzle-piece"></i>
+        </div>
+        <h3 class="font-display font-semibold text-xl text-gray-900">Inclusão & Acessibilidade</h3>
+        <p class="mt-3 text-sm text-gray-600 leading-relaxed">Foco em crianças autistas, pessoas com T21, famílias atípicas e cuidadores. Projeto <strong>"Inclusão em Campo JP"</strong>, com acesso ao esporte, à cultura e à convivência social.</p>
+        <div class="mt-5 flex flex-wrap gap-2">
+          <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-100 text-gray-600">Acolhimento</span>
+          <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-100 text-gray-600">Participação</span>
+          <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-100 text-gray-600">Convivência</span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="reveal group bg-white border border-gray-100 rounded-2xl p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <div class="w-14 h-14 rounded-xl bg-acca-navy/10 flex items-center justify-center text-acca-navy text-2xl mb-5 group-hover:scale-110 transition-transform">
+          <i class="fa-solid fa-route"></i>
+        </div>
+        <h3 class="font-display font-semibold text-xl text-gray-900">Ação Social Itinerante</h3>
+        <p class="mt-3 text-sm text-gray-600 leading-relaxed">Caravanas sociais nas comunidades: recreação, cortes de cabelo, limpeza de pele, teatro de fantoches e acolhimento — serviço e cuidado mais perto das famílias.</p>
+        <div class="mt-5 flex flex-wrap gap-2">
+          <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-100 text-gray-600">Recreação infantil</span>
+          <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-100 text-gray-600">Teatro de fantoches</span>
+          <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-100 text-gray-600">Cuidado pessoal</span>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="reveal group bg-white border border-gray-100 rounded-2xl p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <div class="w-14 h-14 rounded-xl bg-acca-gold-tint flex items-center justify-center text-acca-gold-dark text-2xl mb-5 group-hover:scale-110 transition-transform">
+          <i class="fa-solid fa-masks-theater"></i>
+        </div>
+        <h3 class="font-display font-semibold text-xl text-gray-900">Cultura, Esporte e Convivência</h3>
+        <p class="mt-3 text-sm text-gray-600 leading-relaxed">Eventos inclusivos que fortalecem vínculos e celebram a comunidade ao longo do ano, como o Arraiá Inclusivo e o Natal Inclusivo.</p>
+        <div class="mt-5 flex flex-wrap gap-2">
+          <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-100 text-gray-600">Arraiá Inclusivo</span>
+          <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-100 text-gray-600">Dia dos Pais</span>
+          <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-100 text-gray-600">Natal Inclusivo</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Como o Pão na Comunidade gera impacto -->
+    <div class="mt-14 reveal bg-acca-green-tint rounded-2xl p-8 lg:p-10">
+      <h3 class="font-display font-semibold text-xl text-acca-green-dark text-center">Como o "Pão na Comunidade" gera impacto</h3>
+      <div class="mt-8 grid sm:grid-cols-4 gap-6">
+        <div class="text-center">
+          <div class="w-12 h-12 mx-auto rounded-full bg-acca-green text-white font-display font-bold flex items-center justify-center">01</div>
+          <p class="mt-3 font-semibold text-gray-800 text-sm">Capacitação</p>
+          <p class="text-xs text-gray-600 mt-1">Oficinas e aprendizagem prática</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 mx-auto rounded-full bg-acca-green text-white font-display font-bold flex items-center justify-center">02</div>
+          <p class="mt-3 font-semibold text-gray-800 text-sm">Produção</p>
+          <p class="text-xs text-gray-600 mt-1">Pães, trufas e outros produtos</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 mx-auto rounded-full bg-acca-green text-white font-display font-bold flex items-center justify-center">03</div>
+          <p class="mt-3 font-semibold text-gray-800 text-sm">Apoio</p>
+          <p class="text-xs text-gray-600 mt-1">Kits produtivos e mobilização</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 mx-auto rounded-full bg-acca-gold text-acca-green-dark font-display font-bold flex items-center justify-center">04</div>
+          <p class="mt-3 font-semibold text-gray-800 text-sm">Autonomia</p>
+          <p class="text-xs text-gray-600 mt-1">Renda, confiança e oportunidade</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TERRITÓRIOS & IMPACTO ===================== -->
+<section id="impacto" class="py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <span class="text-acca-gold-dark font-semibold text-sm uppercase tracking-wide">Territórios & Impacto</span>
+      <h2 class="mt-3 font-display font-bold text-3xl sm:text-4xl text-gray-900">Presença que transforma comunidades</h2>
+      <p class="mt-4 text-gray-600">Ao longo de sua trajetória, a ACCA realizou caravanas e ações comunitárias em João Pessoa e na Região Metropolitana, levando acolhimento, escuta, cultura, recreação e fortalecimento de vínculos familiares.</p>
+    </div>
+
+    <div class="mt-14 grid md:grid-cols-2 gap-8">
+      <div class="reveal bg-white rounded-2xl shadow-md p-8">
+        <h3 class="font-display font-semibold text-lg text-acca-green flex items-center gap-2"><i class="fa-solid fa-city"></i> João Pessoa</h3>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="px-4 py-1.5 rounded-full bg-acca-green-tint text-acca-green text-sm font-medium">Taipa</span>
+          <span class="px-4 py-1.5 rounded-full bg-acca-green-tint text-acca-green text-sm font-medium">Costa e Silva</span>
+          <span class="px-4 py-1.5 rounded-full bg-acca-green-tint text-acca-green text-sm font-medium">Bairro das Indústrias</span>
+          <span class="px-4 py-1.5 rounded-full bg-acca-green-tint text-acca-green text-sm font-medium">Timbó</span>
+          <span class="px-4 py-1.5 rounded-full bg-acca-green-tint text-acca-green text-sm font-medium">Mangabeira</span>
+          <span class="px-4 py-1.5 rounded-full bg-acca-green-tint text-acca-green text-sm font-medium">Roger</span>
+          <span class="px-4 py-1.5 rounded-full bg-acca-green-tint text-acca-green text-sm font-medium">São Rafael</span>
+          <span class="px-4 py-1.5 rounded-full bg-acca-green-tint text-acca-green text-sm font-medium">Renascer</span>
+        </div>
+      </div>
+
+      <div class="reveal bg-white rounded-2xl shadow-md p-8">
+        <h3 class="font-display font-semibold text-lg text-acca-green flex items-center gap-2"><i class="fa-solid fa-map-location-dot"></i> Região Metropolitana</h3>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="px-4 py-1.5 rounded-full bg-acca-gold-tint text-acca-gold-dark text-sm font-medium">Conde</span>
+          <span class="px-4 py-1.5 rounded-full bg-acca-gold-tint text-acca-gold-dark text-sm font-medium">Santa Rita</span>
+          <span class="px-4 py-1.5 rounded-full bg-acca-gold-tint text-acca-gold-dark text-sm font-medium">Bayeux</span>
+          <span class="px-4 py-1.5 rounded-full bg-acca-gold-tint text-acca-gold-dark text-sm font-medium">Comunidades parceiras</span>
+        </div>
+        <p class="mt-5 text-sm text-gray-500">Frentes de atuação: recreação infantil, teatro de fantoches, música, oficinas educativas, corte de cabelo, limpeza de pele, lanches e mobilização voluntária.</p>
+      </div>
+    </div>
+
+    <!-- Parceria destaque -->
+    <div class="mt-8 reveal bg-acca-navy rounded-2xl p-8 flex flex-col sm:flex-row items-center gap-6 shadow-md">
+      <i class="fa-solid fa-handshake text-4xl text-acca-gold shrink-0"></i>
+      <div>
+        <p class="text-acca-gold text-xs font-bold uppercase tracking-wide">Parceria institucional em destaque</p>
+        <h3 class="font-display font-bold text-2xl text-white mt-1">ANSEF/PB</h3>
+        <p class="text-white/80 text-sm mt-2">Apoio à realização de atividades inclusivas, esportivas, culturais e comunitárias, incluindo o projeto Inclusão em Campo JP — uma cooperação que amplia acesso, acolhimento e participação.</p>
+      </div>
+    </div>
+
+    <!-- Galeria -->
+    <h3 class="mt-16 text-center font-display font-semibold text-lg text-gray-900 reveal">Registros da atuação comunitária</h3>
+    <div class="mt-6 grid grid-cols-2 md:grid-cols-3 gap-4">
+      <div class="reveal rounded-xl overflow-hidden shadow-md group">
+        <img src="https://placehold.co/500x500/1B5E20/FFFFFF?text=Recrea%C3%A7%C3%A3o" alt="Caravana social da ACCA levando recreação infantil para crianças da comunidade" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+      </div>
+      <div class="reveal rounded-xl overflow-hidden shadow-md group">
+        <img src="https://placehold.co/500x500/F59E0B/1B5E20?text=Oficina+do+P%C3%A3o" alt="Oficina de pães e trufas do Projeto Pão na Comunidade" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+      </div>
+      <div class="reveal rounded-xl overflow-hidden shadow-md group">
+        <img src="https://placehold.co/500x500/1B5E20/F9FAFB?text=Corte+de+Cabelo" alt="Voluntária da ACCA realizando corte de cabelo solidário durante ação comunitária" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+      </div>
+      <div class="reveal rounded-xl overflow-hidden shadow-md group">
+        <img src="https://placehold.co/500x500/2E7D32/FFFFFF?text=Teatro+de+Fantoches" alt="Teatro de fantoches apresentado pela ACCA para crianças em ação social itinerante" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+      </div>
+      <div class="reveal rounded-xl overflow-hidden shadow-md group">
+        <img src="https://placehold.co/500x500/1E3A8A/FFFFFF?text=Regi%C3%A3o+Metropolitana" alt="Encontro comunitário com famílias na Região Metropolitana de João Pessoa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+      </div>
+      <div class="reveal rounded-xl overflow-hidden shadow-md group">
+        <img src="https://placehold.co/500x500/F59E0B/FFFFFF?text=Acolhimento" alt="Distribuição de lanches e acolhimento durante caravana social da ACCA" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+      </div>
+    </div>
+
+    <div class="mt-14 reveal bg-acca-green rounded-2xl px-8 py-6 text-center shadow-md">
+      <p class="text-white font-display font-semibold text-lg">"Cada território representa uma história de acolhimento, serviço voluntário e compromisso social."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INCLUSÃO (complemento visual) ===================== -->
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid lg:grid-cols-2 gap-14 items-center">
+      <div class="reveal">
+        <span class="text-acca-gold-dark font-semibold text-sm uppercase tracking-wide">Inclusão como prática</span>
+        <h2 class="mt-3 font-display font-bold text-3xl sm:text-4xl text-gray-900">Presença, participação e pertencimento</h2>
+        <p class="mt-6 text-gray-600 leading-relaxed">A inclusão faz parte da identidade da ACCA. Promovemos acolhimento, participação social, convivência comunitária e respeito às diferenças junto a crianças, pessoas com deficiência, famílias atípicas e seus cuidadores.</p>
+
+        <div class="mt-6 grid grid-cols-2 gap-4">
+          <div class="flex items-center gap-3 bg-gray-50 rounded-xl p-4">
+            <i class="fa-solid fa-hands-holding-child text-acca-green text-xl"></i>
+            <span class="text-sm font-medium text-gray-700">Crianças autistas e com T21</span>
+          </div>
+          <div class="flex items-center gap-3 bg-gray-50 rounded-xl p-4">
+            <i class="fa-solid fa-wheelchair-move text-acca-green text-xl"></i>
+            <span class="text-sm font-medium text-gray-700">Pessoas com deficiência</span>
+          </div>
+          <div class="flex items-center gap-3 bg-gray-50 rounded-xl p-4">
+            <i class="fa-solid fa-people-roof text-acca-green text-xl"></i>
+            <span class="text-sm font-medium text-gray-700">Famílias atípicas</span>
+          </div>
+          <div class="flex items-center gap-3 bg-gray-50 rounded-xl p-4">
+            <i class="fa-solid fa-heart text-acca-green text-xl"></i>
+            <span class="text-sm font-medium text-gray-700">Mães, pais e cuidadores</span>
+          </div>
+        </div>
+
+        <p class="mt-6 text-sm text-gray-500"><i class="fa-solid fa-circle-info text-acca-gold-dark mr-1"></i> Eventos inclusivos: Arraiá Inclusivo, Dia dos Pais, Dia das Crianças e Natal Inclusivo · Projeto "Inclusão em Campo JP" (2026).</p>
+      </div>
+
+      <div class="reveal grid grid-cols-2 gap-4">
+        <img src="https://placehold.co/500x600/F59E0B/1B5E20?text=Arrai%C3%A1+Inclusivo" alt="Arraiá Inclusivo promovido pela ACCA com crianças autistas e famílias atípicas" class="rounded-2xl shadow-md w-full h-full object-cover">
+        <img src="https://placehold.co/500x600/1B5E20/F9FAFB?text=Natal+Inclusivo" alt="Natal Inclusivo da ACCA com crianças com deficiência e suas famílias" class="rounded-2xl shadow-md w-full h-full object-cover mt-8">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LIDERANÇA ===================== -->
+<section id="lideranca" class="py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <span class="text-acca-gold-dark font-semibold text-sm uppercase tracking-wide">Liderança Institucional</span>
+      <h2 class="mt-3 font-display font-bold text-3xl sm:text-4xl text-gray-900">Presidência da ACCA</h2>
+    </div>
+
+    <div class="mt-14 reveal bg-white rounded-2xl shadow-xl overflow-hidden grid lg:grid-cols-5">
+      <div class="lg:col-span-2 relative">
+        <img src="https://placehold.co/600x700/1B5E20/F59E0B?text=Suelen+Regina"
+             alt="Suelen Regina de Lima Oliveira, Presidente da ACCA, pedagoga e gestora social"
+             class="w-full h-full object-cover">
+      </div>
+      <div class="lg:col-span-3 p-8 lg:p-12">
+        <p class="text-acca-gold-dark text-xs font-bold uppercase tracking-wide">Presidente da ACCA</p>
+        <h3 class="font-display font-bold text-2xl sm:text-3xl text-gray-900 mt-1">Suelen Regina de Lima Oliveira</h3>
+        <p class="text-sm text-gray-500 mt-1">Pedagoga · Gestora Social · Articuladora de projetos comunitários</p>
+
+        <p class="mt-5 text-gray-600 text-sm leading-relaxed">Sua atuação reúne mais de três décadas de experiência em educação e gestão voltada à infância, conhecimento prático no acolhimento de famílias atípicas e liderança na articulação de ações sociais, culturais e inclusivas.</p>
+
+        <div class="mt-6 grid sm:grid-cols-2 gap-6">
+          <div>
+            <p class="font-semibold text-gray-800 text-sm mb-2"><i class="fa-solid fa-briefcase text-acca-green mr-2"></i>Trajetória profissional</p>
+            <ul class="text-sm text-gray-600 space-y-1.5 list-disc list-inside">
+              <li>Início no magistério aos 16 anos</li>
+              <li>10 anos de experiência em docência</li>
+              <li>20 anos na gestão da Escola/Berçário Sara Baby (2002–2022)</li>
+              <li>Criadora do método CABELOEMPATIA (desde 2020)</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-semibold text-gray-800 text-sm mb-2"><i class="fa-solid fa-graduation-cap text-acca-green mr-2"></i>Formação e competências</p>
+            <ul class="text-sm text-gray-600 space-y-1.5 list-disc list-inside">
+              <li>Graduação em Pedagogia</li>
+              <li>Formação em ABA — 240 horas</li>
+              <li>Capacitações relacionadas ao TEA</li>
+              <li>Gestão educacional e liderança de equipes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Presença pública -->
+    <div class="mt-10 reveal grid lg:grid-cols-3 gap-6 items-stretch">
+      <div class="lg:col-span-2 grid grid-cols-2 gap-4">
+        <img src="https://placehold.co/500x500/1B5E20/FFFFFF?text=Entrevista" alt="Suelen Regina de Lima Oliveira durante entrevista sobre inclusão e autismo" class="rounded-2xl shadow-md w-full h-full object-cover">
+        <img src="https://placehold.co/500x500/F59E0B/1B5E20?text=Voxcast" alt="Suelen Regina de Lima Oliveira durante participação no podcast Voxcast, no projeto De Mulher pra Mulher" class="rounded-2xl shadow-md w-full h-full object-cover">
+      </div>
+      <div class="bg-acca-green rounded-2xl p-7 text-white flex flex-col justify-center">
+        <i class="fa-solid fa-podcast text-3xl text-acca-gold mb-3"></i>
+        <p class="text-xs font-bold text-acca-gold uppercase tracking-wide">Presença pública</p>
+        <p class="text-sm text-white/85 mt-2">Participa de entrevistas, podcasts e espaços de comunicação voltados à conscientização sobre inclusão, autismo, atendimento humanizado e fortalecimento das famílias.</p>
+        <p class="text-sm font-semibold mt-3">Projeto: De Mulher pra Mulher — Voxcast</p>
+      </div>
+    </div>
+
+    <!-- Diretoria executiva -->
+    <div class="mt-16">
+      <h3 class="text-center font-display font-semibold text-lg text-gray-900 reveal">Diretoria Executiva · Mandato 2024–2028</h3>
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="reveal bg-white rounded-2xl shadow-md p-6 text-center">
+          <div class="w-16 h-16 mx-auto rounded-full bg-acca-green text-white font-display font-bold text-xl flex items-center justify-center">SR</div>
+          <p class="mt-4 font-semibold text-gray-900 text-sm">Suelen Regina de Lima Oliveira</p>
+          <p class="text-xs text-acca-gold-dark font-medium mt-1">Diretora Presidente</p>
+        </div>
+        <div class="reveal bg-white rounded-2xl shadow-md p-6 text-center">
+          <div class="w-16 h-16 mx-auto rounded-full bg-acca-green text-white font-display font-bold text-xl flex items-center justify-center">ZA</div>
+          <p class="mt-4 font-semibold text-gray-900 text-sm">Zeno de Almeida Cardoso</p>
+          <p class="text-xs text-acca-gold-dark font-medium mt-1">Diretor Vice-Presidente</p>
+        </div>
+        <div class="reveal bg-white rounded-2xl shadow-md p-6 text-center">
+          <div class="w-16 h-16 mx-auto rounded-full bg-acca-green text-white font-display font-bold text-xl flex items-center justify-center">MV</div>
+          <p class="mt-4 font-semibold text-gray-900 text-sm">Mônica Maria Viana do Nascimento</p>
+          <p class="text-xs text-acca-gold-dark font-medium mt-1">Diretora Administrativa</p>
+        </div>
+        <div class="reveal bg-white rounded-2xl shadow-md p-6 text-center">
+          <div class="w-16 h-16 mx-auto rounded-full bg-acca-green text-white font-display font-bold text-xl flex items-center justify-center">RD</div>
+          <p class="mt-4 font-semibold text-gray-900 text-sm">Rubia Dantas Herminio da Silva</p>
+          <p class="text-xs text-acca-gold-dark font-medium mt-1">Diretora Financeira</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-14 reveal bg-acca-green rounded-2xl px-8 py-6 text-center shadow-md">
+      <p class="text-white font-display font-semibold text-lg">"Liderança fundamentada em experiência, escuta e compromisso comunitário."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TRANSPARÊNCIA ===================== -->
+<section id="transparencia" class="py-24 bg-acca-green-dark relative overflow-hidden">
+  <div class="absolute -top-32 -right-32 w-96 h-96 bg-acca-gold/10 rounded-full blob"></div>
+
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <span class="text-acca-gold font-semibold text-sm uppercase tracking-wide">Transparência</span>
+      <h2 class="mt-3 font-display font-bold text-3xl sm:text-4xl text-white">Compromisso com a regularidade e a confiança</h2>
+    </div>
+
+    <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="reveal bg-white/10 border border-white/10 rounded-2xl p-6 text-center backdrop-blur-sm">
+        <i class="fa-solid fa-file-shield text-2xl text-acca-gold"></i>
+        <p class="mt-3 font-display font-bold text-white">CNPJ Ativo</p>
+        <p class="text-sm text-white/70 mt-1">44.497.900/0001-61</p>
+      </div>
+      <div class="reveal bg-white/10 border border-white/10 rounded-2xl p-6 text-center backdrop-blur-sm">
+        <i class="fa-solid fa-scale-balanced text-2xl text-acca-gold"></i>
+        <p class="mt-3 font-display font-bold text-white">Natureza</p>
+        <p class="text-sm text-white/70 mt-1">OSC sem fins lucrativos</p>
+      </div>
+      <div class="reveal bg-white/10 border border-white/10 rounded-2xl p-6 text-center backdrop-blur-sm">
+        <i class="fa-solid fa-building-columns text-2xl text-acca-gold"></i>
+        <p class="mt-3 font-display font-bold text-white">Governança</p>
+        <p class="text-sm text-white/70 mt-1">Assembleia, Diretoria e Conselho Fiscal</p>
+      </div>
+      <div class="reveal bg-white/10 border border-white/10 rounded-2xl p-6 text-center backdrop-blur-sm">
+        <i class="fa-solid fa-location-dot text-2xl text-acca-gold"></i>
+        <p class="mt-3 font-display font-bold text-white">Domicílio</p>
+        <p class="text-sm text-white/70 mt-1">João Pessoa/PB</p>
+      </div>
+    </div>
+
+    <div class="mt-10 reveal bg-white/5 border border-white/10 rounded-2xl p-8 text-center">
+      <p class="text-white/80 text-sm max-w-3xl mx-auto leading-relaxed">A ACCA não distribui dividendos, mantém escrituração contábil regular conforme as Normas Brasileiras de Contabilidade e aplica integralmente seus recursos no cumprimento de suas finalidades institucionais — sem depender de emendas parlamentares ou convênios governamentais.</p>
+      <p class="mt-4 text-acca-gold text-sm font-semibold"><i class="fa-solid fa-circle-info mr-1"></i> Documentos institucionais — Estatuto Social, CNPJ e atas — disponíveis para consulta mediante solicitação.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA PARCERIAS ===================== -->
+<section class="py-20 bg-white">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8 reveal">
+    <div class="bg-acca-gold-tint border border-acca-gold/30 rounded-2xl p-10 text-center shadow-md">
+      <h2 class="font-display font-bold text-2xl sm:text-3xl text-acca-green-dark">Vamos construir juntos?</h2>
+      <p class="mt-4 text-gray-700 max-w-2xl mx-auto">A ACCA está aberta a parcerias com órgãos públicos, parlamentares, empresas, universidades, organizações da sociedade civil e pessoas comprometidas com a transformação social.</p>
+      <div class="mt-7 flex flex-wrap justify-center gap-4">
+        <a href="https://wa.me/558388377267?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20ACCA%20e%20como%20posso%20contribuir." target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-acca-green hover:bg-acca-green-dark text-white font-semibold px-7 py-3.5 rounded-full shadow-md hover:shadow-lg transition-all duration-300">
+          <i class="fa-brands fa-whatsapp text-lg"></i> Falar no WhatsApp
+        </a>
+        <a href="mailto:acca2021@bol.com.br" class="inline-flex items-center gap-2 bg-white border border-acca-green text-acca-green font-semibold px-7 py-3.5 rounded-full hover:bg-acca-green hover:text-white transition-all duration-300">
+          <i class="fa-solid fa-envelope"></i> Enviar e-mail
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER / CONTATO ===================== -->
+<footer id="contato" class="bg-acca-green-dark text-white/70 pt-20 pb-8">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+    <div>
+      <div class="flex items-center gap-3">
+        <span class="w-11 h-11 rounded-xl bg-gradient-to-br from-acca-gold to-acca-gold-dark flex items-center justify-center text-acca-green-dark shadow-md">
+          <i class="fa-solid fa-hand-holding-heart text-lg"></i>
+        </span>
+        <span class="font-display font-extrabold text-xl text-white">ACCA</span>
+      </div>
+      <p class="mt-4 text-sm italic text-acca-gold/90">"Quem não vive para servir, não serve para viver."</p>
+      <p class="mt-4 text-sm leading-relaxed">Associação Cristã Conservadora do Amanhã — organização da sociedade civil sem fins lucrativos, atuando em João Pessoa/PB desde 2021.</p>
+    </div>
+
+    <div>
+      <h4 class="text-white font-display font-semibold mb-4">Links Rápidos</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#quem-somos" class="hover:text-acca-gold transition-colors">Quem Somos</a></li>
+        <li><a href="#historia" class="hover:text-acca-gold transition-colors">História</a></li>
+        <li><a href="#atuacao" class="hover:text-acca-gold transition-colors">Áreas de Atuação</a></li>
+        <li><a href="#impacto" class="hover:text-acca-gold transition-colors">Impacto</a></li>
+        <li><a href="#lideranca" class="hover:text-acca-gold transition-colors">Liderança</a></li>
+        <li><a href="#transparencia" class="hover:text-acca-gold transition-colors">Transparência</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-white font-display font-semibold mb-4">Áreas de Atuação</h4>
+      <ul class="space-y-2 text-sm">
+        <li>Assistência social</li>
+        <li>Cultura e educação</li>
+        <li>Inclusão e acessibilidade</li>
+        <li>Esporte e convivência</li>
+        <li>Fortalecimento comunitário</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-white font-display font-semibold mb-4">Contato Institucional</h4>
+      <ul class="space-y-3 text-sm">
+        <li class="flex items-start gap-2">
+          <i class="fa-solid fa-location-dot mt-1 text-acca-gold"></i>
+          <a href="https://www.google.com/maps/search/?api=1&query=Av.+Santa+J%C3%BAlia%2C+159%2C+Torre%2C+Jo%C3%A3o+Pessoa%2C+PB%2C+58040-450" target="_blank" rel="noopener" class="hover:text-acca-gold transition-colors">Av. Santa Júlia, 159, Sala 1 CXPST 8 — Torre, João Pessoa/PB — CEP 58040-450</a>
+        </li>
+        <li class="flex items-center gap-2">
+          <i class="fa-solid fa-envelope text-acca-gold"></i>
+          <a href="mailto:acca2021@bol.com.br" class="hover:text-acca-gold transition-colors">acca2021@bol.com.br</a>
+        </li>
+        <li class="flex items-center gap-2">
+          <i class="fa-solid fa-phone text-acca-gold"></i>
+          <a href="tel:+558388377267" class="hover:text-acca-gold transition-colors">(83) 8837-7267</a>
+          <!-- Confirmar se este número aceita WhatsApp Business antes de publicar -->
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
+    <p>© <span id="year"></span> ACCA — Associação Cristã Conservadora do Amanhã · CNPJ 44.497.900/0001-61</p>
+    <p>Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<!-- Botão flutuante WhatsApp -->
+<a href="https://wa.me/558388377267?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20ACCA." target="_blank" rel="noopener"
+   aria-label="Falar no WhatsApp"
+   class="whatsapp-pulse fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-xl hover:scale-110 transition-transform duration-300">
+  <i class="fa-brands fa-whatsapp text-2xl"></i>
+</a>
+
+<script>
+  // Menu mobile
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    const icon = menuBtn.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-xmark');
+  });
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      menuBtn.querySelector('i').classList.add('fa-bars');
+      menuBtn.querySelector('i').classList.remove('fa-xmark');
+    });
+  });
+
+  if ('IntersectionObserver' in window) {
+    // Reveal on scroll
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Scroll-spy
+    const navLinks = document.querySelectorAll('[data-nav]');
+    const sections = Array.from(navLinks).map(link => document.querySelector(link.getAttribute('href')));
+    const spyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = '#' + entry.target.id;
+          navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === id));
+        }
+      });
+    }, { rootMargin: '-40% 0px -50% 0px' });
+    sections.forEach(section => { if (section) spyObserver.observe(section); });
+
+    // Safety net: a backgrounded/occluded tab can delay IntersectionObserver callbacks
+    // indefinitely, leaving sections stuck at opacity:0. Force-reveal everything once
+    // the tab is actually visible, plus a hard timeout as last resort.
+    const forceReveal = () => document.querySelectorAll('.reveal:not(.in-view)').forEach(el => el.classList.add('in-view'));
+    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') forceReveal(); });
+    setTimeout(forceReveal, 2500);
+  }
+
+  // Ano dinâmico
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
